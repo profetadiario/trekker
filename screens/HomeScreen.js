@@ -30,7 +30,8 @@ export default function HomeScreen() {
           </View>
 
           <Text style={styles.getStartedText}>
-            Change any of the text, save the file, and your app will automatically reload.
+            Eu só quero rodar a api do maps aqui rapidão
+            hello world depois de um tempao memo
           </Text>
         </View>
 
