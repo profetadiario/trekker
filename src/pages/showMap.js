@@ -1,15 +1,12 @@
 import MapboxGL from '@react-native-mapbox-gl/maps'; //biblioteca mapBox
 import React, { useState } from 'react';
-import { View, Platform, StyleSheet } from 'react-native';
+import { View, Platform, StyleSheet,PermissionsAndroid } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Geolocation from '@react-native-community/geolocation'; //biblioteca de Geolacalização
 //mapBox tokken, pretendo colocar na pasta de config ou de services
 MapboxGL.setAccessToken(
     'pk.eyJ1Ijoiam9uYXRoZWxvbyIsImEiOiJja2R5amIxcjYxM2k4MnhvYTRjcWNpZnc1In0.I7SDQB90tun0gGQ2VFlfmw'
 );
-
-//verificar que a plataforma é android, pq tem diferença pro ios
-const IS_ANDROID = Platform.OS === 'android';
 
 export default function Mapa() {
     //objeto para colocar a localização atual, pode ser feito em outro lugar, fazer um array disso pra poder colocar todas e plotar na tela, talvez
@@ -20,19 +17,9 @@ export default function Mapa() {
         longitudeDelta: 0.0421,
     });
     //chamando a localização atual e setando no objeto acima.
-    Geolocation.getCurrentPosition(
-        pos => {
-            console.log("TesteDeChamada", pos.coords)
-            setPosition({
-                ...position,
-                latitude: pos.coords.latitude,
-                longitude: pos.coords.longitude,
-
-            })
-        });
-
+    setTimeout(permitirLocalizacao,5000);
     //função pra pedir permição pra localização
-    async () => {
+    async function permitirLocalizacao(){
         try {
             const granted = await PermissionsAndroid.request(
                 PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -58,6 +45,7 @@ export default function Mapa() {
                         Alert.alert('Houve um erro ao pegar a latitude e longitude.');
                     },
                 );
+                
             } else {
                 Alert.alert('Permissão de localização não concedida');
             }
