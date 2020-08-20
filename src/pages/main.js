@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 //import Geolocation from '@react-native-community/geolocation';
 import { View, Text, Button, Alert } from 'react-native';
-import Teste from '../mapjson/viewTrilha';
+import InfoTrilha from '../mapjson/viewTrilha';
 import Trilha from './trilha';
 //import Trilha from './trilha';
+
+
 
 export default function Main({ navigation }) {
     /*
@@ -30,16 +32,10 @@ export default function Main({ navigation }) {
                 <Button
                     //botão para chamar o mapa de teste, mostrando a localização atual
                     title="Mostrar minha localização atual"
-                    onPress={() => navigation.navigate('Localização atual', { Trilha: Teste})
+                    onPress={() => navigation.navigate('Localização atual')
                     }
                 />
 
-                <Button
-                    //botão para chamar o mapa de teste, mostrando a localização atual
-                    title="Teste  1"
-                    onPress={() => navigation.navigate('viewTrilha')
-                    }
-                />
             </View>
 
         </View>

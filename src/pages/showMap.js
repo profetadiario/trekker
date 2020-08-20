@@ -2,14 +2,14 @@ import MapboxGL from '@react-native-mapbox-gl/maps'; //biblioteca mapBox
 import React, { useState } from 'react';
 import { View, Platform, StyleSheet,PermissionsAndroid } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Geolocation from '@react-native-community/geolocation'; //biblioteca de Geolacalização
 import Trilha from '../mapjson/viewTrilha';
+import Geolocation from '@react-native-community/geolocation'; //biblioteca de Geolacalização
 //mapBox tokken, pretendo colocar na pasta de config ou de services
 MapboxGL.setAccessToken(
     'pk.eyJ1Ijoiam9uYXRoZWxvbyIsImEiOiJja2R5amIxcjYxM2k4MnhvYTRjcWNpZnc1In0.I7SDQB90tun0gGQ2VFlfmw'
 );
 
-export default function Mapa(route) {
+export default function Mapa() {
     //objeto para colocar a localização atual, pode ser feito em outro lugar, fazer um array disso pra poder colocar todas e plotar na tela, talvez
     const [position, setPosition] = useState({
         latitude: 37.78825,
@@ -64,15 +64,14 @@ export default function Mapa(route) {
                     style={styles.container}
 
                 >
-                   <MapboxGL.Camera
+                   {/* <MapboxGL.Camera
                         zoomLevel={15}
                         centerCoordinate={[-70.55217762081767, 41.61376979061129]}
                     >
 
-                    </MapboxGL.Camera> 
-                    <Trilha>
-                    </Trilha>
-                   
+                    </MapboxGL.Camera>  */}
+
+                   <Trilha></Trilha>
                     <MapboxGL.UserLocation>
                     </MapboxGL.UserLocation>
 
