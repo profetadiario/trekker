@@ -1,0 +1,17 @@
+só instalar essas api ai que vai dar bom, depois só buildar e gg
+
+npm install @react-navigation/native @react-navigation/stack
+
+npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install @react-native-mapbox-gl/maps --save
+
+npm install @react-native-community/geolocation --save
+
+
+
+eviar a trilha como paramentro
+criar um botão de minha localização para alterar o foco da camera
+usar a pagina de mapa como unico mapa 
+
+alterar camera, redenrizar <mapboxgl.camera> em localização atual e em viewtrilha

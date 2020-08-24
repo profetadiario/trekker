@@ -1,4 +1,4 @@
-#Tue Aug 11 18:02:33 BRT 2020
-base.0=C\:\\_react\\trekker\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+#Mon Aug 17 22:09:08 BRT 2020
+base.0=C\:\\Users\\admin\\Documents\\GitHub\\trekker\\android\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

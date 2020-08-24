@@ -27,6 +27,18 @@
     <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"Megosztás a következővel:"</string>
     <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"Megosztás a következő alkalmazással: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"Összecsukás"</string>
+    <string name="mapbox_attributionErrorNoBrowser">Nincs webböngésző telepítve a készüléken, nem lehet megnyitni weboldalt.</string>
+    <string name="mapbox_attributionTelemetryMessage">Segítesz az OpenStreetMap és Mapbox térképek jobbá tételében névtelen felhasználási adatok elküldésével.</string>
+    <string name="mapbox_attributionTelemetryNegative">Nem értek egyet</string>
+    <string name="mapbox_attributionTelemetryNeutral">Több infó</string>
+    <string name="mapbox_attributionTelemetryPositive">Egyetértek</string>
+    <string name="mapbox_attributionTelemetryTitle">Tedd jobbá a Mapbox térképeket</string>
+    <string name="mapbox_attributionsDialogTitle">Mapbox Maps SDK Androidhoz</string>
+    <string name="mapbox_mapActionDescription">Egy Mapbox-szal készült térkép megjelenítése. Húzd két ujjadat a görgetéshez. Csippentsd össze a nagyításhoz.</string>
+    <string name="mapbox_myLocationViewContentDescription">Hely nézet. Megmutatja, hol vagy a térképen.</string>
+    <string name="mapbox_offline_error_region_definition_invalid">A megadott OfflineRegionDefinition nem fér bele a világ kereteibe: %s</string>
+    <string name="mapbox_telemetryImproveMap">Tedd jobbá ezt a térképet</string>
+    <string name="mapbox_telemetrySettings">Telemetria beállítások</string>
     <string msgid="730395136688082741" name="search_menu_title">"Keresés"</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>
