@@ -1,3 +1,6 @@
+// Essa aqui é responsavel por tratar o gps
+
+
 import React, { useState } from 'react';
 import Geolocation from '@react-native-community/geolocation'; //biblioteca de Geolacalização
 import { PermissionsAndroid } from 'react-native';

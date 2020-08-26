@@ -1,9 +1,13 @@
+
+//Página responsavel por mostrar o mapa
+
 import MapboxGL from '@react-native-mapbox-gl/maps'; //biblioteca mapBox
-import React, { useState } from 'react';
-import { View, Platform, StyleSheet,PermissionsAndroid } from 'react-native';
+import React from 'react';
+import { View, StyleSheet} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Trilha from '../mapjson/viewTrilha';
 import Eu from '../services/gps'
+
 //mapBox tokken, pretendo colocar na pasta de config ou de services
 MapboxGL.setAccessToken(
     'pk.eyJ1Ijoiam9uYXRoZWxvbyIsImEiOiJja2R5amIxcjYxM2k4MnhvYTRjcWNpZnc1In0.I7SDQB90tun0gGQ2VFlfmw'
