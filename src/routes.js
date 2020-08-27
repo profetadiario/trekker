@@ -16,6 +16,11 @@ const Routes = () => {
                 <Stack.Screen
                     name="Home"
                     component={Main}
+                    options={
+                        {
+                            headerShown: 'false'
+                        }
+                    }
                 />
                 <Stack.Screen
                     name="showMapa" //nome de chamada que vai ser passado por um botão por exemplo
