@@ -8,103 +8,60 @@ import {
   StatusBar,
   Button,
 } from 'react-native';
+
+//import bibloteca de gestos, para botões e tals
 import 'react-native-gesture-handler';
+
+//import react navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TextInput } from 'react-native-gesture-handler';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+//import pages
+import LoginScreen from './src/pages/loginScreen';
+import HomeScreen from './src/pages/homeScreen';
+import MapScreen from './src/pages/mapScreen';
+import DetailsScreen from './src/pages/detailsScreen';
+
 
 const Stack = createStackNavigator();
-
-const LoginScreen = ({navigation}) => {
+const Tab = createBottomTabNavigator();
+function Tabs() {
   return (
-    <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Put your nickname above:</Text>
-      <TextInput title = "Nickname">Just A Nickname and a InputText</TextInput>
-      <Button 
-      title = "Enter The Application"
-      onPress = {() => navigation.navigate("Home")}
-      />
-    </View>
-    );
-  }
+    <Tab.Navigator>
+      <Tab.Screen name="Map" component={MapScreen}/>
+      <Tab.Screen name="Details" component={DetailsScreen}  />
+    </Tab.Navigator>
+  );
+}
 
-const HomeScreen = ({navigation}) => {
+const App = () => {
   return (
-    <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Here We Got List Of All Available Tracks</Text>
-      <Text>Every Track Available MUST BE a accessible in onPress</Text>
-      <Button 
-      title = "Go to The Map Screen"
-      onPress = {() => navigation.navigate("Map")}
-      />
-      </View>
-    );
-  }
-
-
-    const MapScreen = ({navigation}) => {
-      return (
-        <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text>Map Screen</Text>
-          <Button 
-          title = "Go to Details of THIS Track"
-          onPress = {() => navigation.navigate("Details")}
-          />
-          <Button 
-          title = "Back to Home Screen"
-          onPress = {() => navigation.goBack()}
-          />          
-        </View>
-        );
-      }
-
-      const DetailsScreen = ({navigation}) => {
-    return (
-      <View style={{flex:1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Details Screen</Text>
-        <Button 
-          title = "Back to Map Screen"
-          onPress = {() => navigation.goBack()}
-          />
-        <Button 
-        title = "Back to Home Screen"
-        onPress = {() => navigation.navigate("Home")}
-        />
-        <Button 
-        title = "Change Your Nickname"
-        onPress = {() => navigation.navigate("Login")}
-        />        
-      </View>
-      );
-    }
-
-  const App = () => {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator screenOptions ={{
-          headerStyle: {
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
           backgroundColor: '#009387',
-          },
-           headerTintColor: '#fff',
-           headerTitleStyle:{
-           fontWeight: 'bold'
-          }
-        }}>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Home" component={HomeScreen} options={{
-            // headerStyle: {
-            //   backgroundColor: '#009387',
-            // },
-            // headerTintColor: '#fff',
-            // headerTitleStyle:{
-            //   fontWeight: 'bold'
-            // }
-          }} />
-          <Stack.Screen name="Details" component={DetailsScreen} />
-          <Stack.Screen name="Map" component={MapScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  }
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }
+      }}>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          // headerStyle: {
+          //   backgroundColor: '#009387',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle:{
+          //   fontWeight: 'bold'
+          // }
+        }} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Map" component={Tabs} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default App;

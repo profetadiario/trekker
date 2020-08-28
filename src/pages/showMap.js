@@ -3,7 +3,8 @@
 
 import MapboxGL from '@react-native-mapbox-gl/maps'; //biblioteca mapBox
 import React from 'react';
-import { View, StyleSheet} from 'react-native';
+import { View, StyleSheet,Button } from 'react-native';
+import 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Trilha from '../mapjson/viewTrilha';
 import Eu from '../services/gps'
@@ -16,22 +17,28 @@ MapboxGL.setAccessToken(
 export default function Mapa() {
     return (
         <SafeAreaView style={styles.container}>
-            
+
             <View style={styles.container}>
 
                 <MapboxGL.MapView
                     style={styles.container}
 
                 >
-                   {/* <MapboxGL.Camera
+                    {/* <MapboxGL.Camera
                         zoomLevel={15}
                         centerCoordinate={[-70.55217762081767, 41.61376979061129]}
                     >
 
                     </MapboxGL.Camera>  */}
 
-                   <Trilha></Trilha>
+                    <Trilha></Trilha>
                     <Eu></Eu>
+
+                    <Button
+                    style={styles.container}
+                        title="Go to Details of THIS Track"
+                        onPress={() => navigation.navigate("Details")}
+                    />
                 </MapboxGL.MapView>
             </View>
         </SafeAreaView>
