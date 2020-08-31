@@ -3,11 +3,11 @@
 
 import MapboxGL from '@react-native-mapbox-gl/maps'; //biblioteca mapBox
 import React from 'react';
-import { View, StyleSheet,Button } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Trilha from '../mapjson/viewTrilha';
-import Eu from '../services/gps'
+
 
 //mapBox tokken, pretendo colocar na pasta de config ou de services
 MapboxGL.setAccessToken(
@@ -32,13 +32,8 @@ export default function Mapa() {
                     </MapboxGL.Camera>  */}
 
                     <Trilha></Trilha>
-                    <Eu></Eu>
-
-                    <Button
-                    style={styles.container}
-                        title="Go to Details of THIS Track"
-                        onPress={() => navigation.navigate("Details")}
-                    />
+                    <MapboxGL.UserLocation>
+                    </MapboxGL.UserLocation>
                 </MapboxGL.MapView>
             </View>
         </SafeAreaView>
