@@ -10,8 +10,8 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 export default function gps(){
 //objeto para colocar a localização atual, pode ser feito em outro lugar, fazer um array disso pra poder colocar todas e plotar na tela, talvez
 const [position, setPosition] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
+    latitude: 0,
+    longitude: 0,
 });
 //chamando a localização atual e setando no objeto acima.
 setTimeout(permitirLocalizacao, 5000);
@@ -29,7 +29,7 @@ async function permitirLocalizacao() {
             //não tenho certeza como isso aqui funciona direito
             Geolocation.getCurrentPosition(
                 pos => {
-                    console.log("TesteDeChamada", pos.coords)
+                    //console.log("TesteDeChamada", pos.coords)
                     setPosition({
                         ...position,
                         latitude: pos.coords.latitude,
@@ -56,5 +56,5 @@ const viewItem = (
 
         </MapboxGL.UserLocation>
 );
-return viewItem;
+return position;
 }
