@@ -13,7 +13,7 @@ const UserSchema = new mongoose.Schema({
         }
     },
     idTrilha: {
-        type: Number,
+        type: String,
     }
 });
 
