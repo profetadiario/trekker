@@ -264,7 +264,10 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: 'center',
-        marginTop: 50
+        marginTop: 50,
+        paddingBottom: 50,
+        backgroundColor: '#fff'
+ 
     },
     signIn: {
         width: '100%',

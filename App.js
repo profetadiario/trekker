@@ -1,13 +1,4 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-} from 'react-native';
 
 //import bibloteca de gestos, para botões e tals
 import 'react-native-gesture-handler';
@@ -40,23 +31,18 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#009387',
+          backgroundColor: '#2196f3',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
-          fontWeight: 'bold'
+        fontWeight: '400'  
         }
-      }}>
+      }}
+      >
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} options={{
-          // headerStyle: {
-          //   backgroundColor: '#009387',
-          // },
-          // headerTintColor: '#fff',
-          // headerTitleStyle:{
-          //   fontWeight: 'bold'
-          // }
-        }} />
+        <Stack.Screen name="Home" component={HomeScreen}  options={{
+          headerShown: 'false'
+        }}/>
         <Stack.Screen name="Details" component={DetailsScreen} />
         <Stack.Screen name="Map" component={Tabs} />
       </Stack.Navigator>

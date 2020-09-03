@@ -11,7 +11,6 @@ const Stack = createStackNavigator();
 const Routes = () => {
     return (
         <NavigationContainer>
-
             <Stack.Navigator >
                 <Stack.Screen
                     name="Home"
@@ -26,7 +25,6 @@ const Routes = () => {
                     name="showMapa" //nome de chamada que vai ser passado por um botão por exemplo
                     component={Mapa} //pagina que será chamada que deve ter sido importada
                 />
-
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -10,7 +10,7 @@ app.use(cors());
 
 //Iniciando o DB
 mongoose.connect(
-    'mongodb://192.168.15.199:27017/nodeapi',
+    'mongodb://192.168.0.101:27017/nodeapi',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true

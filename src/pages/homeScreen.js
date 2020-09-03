@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    StyleSheet,
-    ScrollView,
     View,
     Text,
-    StatusBar,
     Button,
+    StyleSheet
 } from 'react-native';
 import 'react-native-gesture-handler';
 import api from '../services/api';
@@ -28,15 +25,43 @@ export default HomeScreen = ({ navigation, route }) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <View>
-                <Text>Olá {idUser, "  ", nickName}! Escolha uma trilha.</Text>
+                <Text style={styles.title}>Olá {idUser, "  ", nickName}! Escolha uma trilha:</Text>
             </View>
-
-            <Text>Here We Got List Of All Available Tracks</Text>
-            <Text>Every Track Available MUST BE a accessible in onPress</Text>
+            <View>
+            <Text>Aqui estarão as trilhas disponíveis</Text>
+            </View>
+            <Text>Cada trilha deve ter sua propria view e o button OnPress pra direcionar pra ela</Text>
             <Button
-                title="Go to The Map Screen"
+                title="Veja a trilha"
                 onPress={() => navigation.navigate("Map", {})}
             />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        marginHorizontal: 16,
+    },
+    title: {
+        textAlign: 'center',
+        fontWeight: "bold",
+        marginVertical: 8,
+        fontSize: 35
+    },
+    text: {
+        textAlign: 'center',
+        marginVertical: 8,
+    },
+    fixToText: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    separator: {
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+    },
+});
