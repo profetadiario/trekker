@@ -13,39 +13,32 @@ import api from '../services/api';
 import { FlatList } from 'react-native-gesture-handler';
 
 
-
 export default HomeScreen = ({ navigation, route }) => {
     let idUser = route.params?.idUser;
     let nickName = route.params?.nomeUser;
-    const [trilhas, setTrilhas] = useState([]);
-    const idTrilha = "5f48064afb286d1e10fb4327";
-    async function handlerHome() {
-        const response = await api.put(`/users/${idUser}`, { "idTrilha": idTrilha });
-        const user = response.data;
-        navigation.navigate("Map", {});
+    const trilhas = route.params?.trilhas;
+    console.log("id: ",idUser);
+    async function handlerHome(idTrilha) {
+        const responseUser = await api.put(`/users/${idUser}`, { "idTrilha": idTrilha  });
+        const responseTrilha = await api.get(`/trilhas/${idTrilha}`);
+        const user = responseUser.data;
+        const trilha = responseTrilha.data;
+        console.log("usuario   ", user._id);
+        navigation.navigate("Details", {usuario: user, });
     };
-    useEffect(() => {
-        async function loadTrilhas() {
-            const response = await api.get(`/trilhas`);
-            setTrilhas(response.data);
-            //console.log("Imprimindo o Respose.Data", response.data);
-        };
 
-        loadTrilhas();
-        //console.log("Imprindo Trilhas", trilhas.map(trilha => trilha.title));
-    });
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', fontSize: 20}}>
-                <Text>Olá {idUser, "  ", nickName}! Escolha uma trilha.</Text>
+                <Text>Olá {nickName}! Escolha uma trilha.</Text>
 
-                {trilhas.map(trilha =>
+                {trilhas.map((trilha, index) =>
                     <View >
-                        <Text key={trilha._id}>{trilha.title}</Text>
+                        <Text key={index}>{trilha.title}</Text>
                         <Button
                             title="Go to The Map Screen"
-                            onPress={() => handlerHome()}
+                            onPress={() => handlerHome(trilha._id)}
                         />
                     </View>
                 )}

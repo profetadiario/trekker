@@ -58,7 +58,7 @@ const App = () => {
           // }
         }} />
         <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Map" component={Tabs} />
+        <Stack.Screen name="Map" component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

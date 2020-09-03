@@ -17,15 +17,17 @@ import api from '../services/api';
 export default LoginScreen = ({ navigation }) => {
     let [nome, nickName] = React.useState('Insira aqui seu Nome');
 
-    async function handleLogin(){
+    async function handleLogin() {
         console.log("Entrou no initUser", nome);
         const response = await api.post('/users', { "name": nome });
         console.log("Olha o response", response.data);
-        const id = response.data; 
-        console.log("Olha o id", id);      
-        
-    
-        navigation.navigate("Home", { nomeUser: nome, idUser: id });
+        const id = response.data;
+        const responseTrilhas = await api.get(`/trilhas`);
+        const trilhasObj = responseTrilhas.data;
+        console.log("Olha o id", id);
+
+
+        navigation.navigate("Home", { nomeUser: nome, idUser: id, trilhas: trilhasObj });
     }
 
     return (
@@ -34,7 +36,7 @@ export default LoginScreen = ({ navigation }) => {
             <TextInput title="Nickname" onChangeText={text => nickName(text)} value={nome} />
             <Button
                 title="Enter The Application"
-                onPress={() => handleLogin() }
+                onPress={() => handleLogin()}
             />
         </View>
     );

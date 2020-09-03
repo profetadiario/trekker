@@ -15,22 +15,23 @@ import gps from '../services/gps';
 import api from '../services/api';
 
 export default MapScreen = ({ navigation, route }) => {
-    let idUsuario= route.params?.user._id;
-    console.log("Parametro", idUsuario);
-    let position = gps();
-    async function updateUser(req, res) {
-        const response = await api.put('/users/' + idUsuario,
-            {
-                "coordinates": {
-                    "latitude": position.latitute,
-                    "longitude": position.longitude,
-                },
-                "idTrilha": 0,
+    let idUsuario= route.params?.usuario;
+    
+    console.log("Parametro   ", route.params?.usuario, route.params?.texto);
+    //let position = gps();
+    // async function updateUser(req, res) {
+    //     const response = await api.put(`/users/${idUser}`,
+    //         {
+    //             "coordinates": {
+    //                 "latitude": position.latitute,
+    //                 "longitude": position.longitude,
+    //             },
+    //             "idTrilha": 0,
 
-            });
-            return res.json(response);
-    };
-    updateUser();
+    //         });
+    //         return res.json(response);
+    // };
+    
     return (
         <Mapa>
         </Mapa>
